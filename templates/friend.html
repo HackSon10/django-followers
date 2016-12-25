@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Friends</title>
+	<style>body{font-family:'Patua One';}</style>
+</head>
+<body>
+
+	<h1>{{friend}}</h1>
+
+	{% for rela in relation %}
+		{% if rela.status == 1 %}
+			<p>En espera...</p>
+		{% elif rela.status == 2 %}
+			<p>Estu amigo</p>
+		{% endif %}
+	{% empty %}
+		<a href="/request/{{friend}}/"><button type="submit">Seguir</button></a>
+	{% endfor %}
+</body>
+</html>

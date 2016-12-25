@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Friends</title>
+	<style>
+	
+	body{font-family:'Patua One';}
+	a{text-decoration:none; color:black;}
+	h1, p{margin:0px; padding:0px;}
+
+	</style>
+</head>
+<body>
+	
+	<h1>Solicitudes de {{request.user}} {{ numreq }}</h1>
+	{% for f in requests %}
+		{% if f.status == 1 %}
+			<div>{{f.user_to}} mandaste a {{f.friend_to}}</div>
+		{% endif %}
+	{% empty %}
+		<p>esta vacio</p>
+	{% endfor %}
+	
+	<br>
+	
+	<h1>Los quieren seguirte {{ numreqs }}</h1>
+	{% for noti in follow %}
+		{% if noti.status == 1 %}
+			<div>{{noti.user_to}}</div>
+			<a href="/accept/{{noti.user_to}}/">Aceptar</a> o
+			<a href="/reject/{{noti.user_to}}/">Rechazar</a>
+		{% endif %}
+	{% empty %}
+		<p>esta vacio</p>
+	{% endfor %}
+	
+	<br>
+	
+	<h1>Tus amigos {{ numfriend }}</h1>
+	{% for f in friend %}
+		{% if f.status == 2 %}
+			<a href="/{{f.user_to}}/"><h1>{{f.user_to}}</h1></a>
+			<a href="/reject/{{f.user_to}}/">eliminar</a>
+			<a href="#" target="_blank">otro</a>
+			<div>{{f.date}}</div>
+			<br>
+		{% endif %}
+	{% empty %}
+		<p>esta vacio</p>
+	{% endfor %}
+	
+</body>
+</html>
