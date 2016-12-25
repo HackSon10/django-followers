@@ -1,7 +1,7 @@
 # django-friends
 it is a way for have friends in django
 
-hi i am Simon Escobar, i am latin, i am 16 years old, i new in this of programming, here i want share with you this code done in django.
+hi i am Simon Escobar, i am 16 years old, i new in this of programming, here i want share with you this code done in django.
 
 the app is done in django 1.10 but you can any other version
 
